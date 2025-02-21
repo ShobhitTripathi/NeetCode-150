@@ -164,6 +164,32 @@ public class SortMapByValues {
 }
 ```
 
+### Sort map by values descending order
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Banana", 2);
+        map.put("Apple", 3);
+        map.put("Cherry", 1);
+
+        // Sort by values in descending order
+        List<Map.Entry<String, Integer>> entries = new ArrayList<>(map.entrySet());
+        entries.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+
+        // LinkedHashMap to maintain order
+        Map<String, Integer> sortedMap = new LinkedHashMap<>();
+        for (Map.Entry<String, Integer> entry : entries) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+
+        System.out.println("Map sorted by values in descending order: " + sortedMap);
+    }
+}
+```
+
 ---
 
 ## Sorting Scenarios
